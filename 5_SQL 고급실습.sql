@@ -88,17 +88,67 @@ INSERT INTO `Sales` (`uid`, `year`, `month`, `sale`) VALUES ('a104', 2020, 2,  8
 INSERT INTO `Sales` (`uid`, `year`, `month`, `sale`) VALUES ('a105', 2020, 2, 180000);
 INSERT INTO `Sales` (`uid`, `year`, `month`, `sale`) VALUES ('a108', 2020, 2,  76000);
 
-
-
 #실습하기 5-3
-
-
+SELECT * FROM `member` WHERE `name`='김유신';
+SELECT * FROM `member` WHERE `name` != '김춘추';
+SELECT * FROM `member` WHERE `name` <> '김춘추';
+SELECT * FROM `member` WHERE `pos`='사원' OR `pos`='대리';
+SELECT * FROM `member` WHERE `pos` IN('사원', '대리');
+SELECT * FROM `member` WHERE `name` LIKE '%신';
+SELECT * FROM `member` WHERE `name` LIKE '정_';
 
 #실습하기 5-4
+SELECT * FROM `Sales` ORDER BY `sale` ASC;
+SELECT * FROM `Sales` ORDER BY `sale` DESC;
+
+SELECT * FROM `Sales` 
+	WHERE `sale` > 50000
+		ORDER BY `year`, `month`, `sale` DESC; 
+
 
 #실습하기 5-5
+SELECT * FROM `Sales` LIMIT 3;
+SELECT * FROM `Sales` LIMIT 1, 3;
+SELECT * FROM `Sales` LIMIT 4, 5;
+
+SELECT * FROM `Sales`
+	WHERE `sale` > 50000
+		ORDER BY `year` DESC, `month` ASC, `sale` DESC
+			LIMIT 5;
+
 
 #실습하기 5-6
+SELECT SUM(`sale`) AS `합계` FROM `Sales`;
+SELECT AVG(`sale`) AS `평균` FROM `Sales`;
+SELECT COUNT(*) AS `갯수` FROM `Sales`;
+
+INSERT INTO `member` VALUES ('b101', '을지문덕', '010-5555-1234', '사장', 107, NOW());
+
+#확인문제1
+SELECT SUM(`sale`) AS `2018년 1월 총매출` 
+	FROM `Sales` 
+		WHERE `year`=2018 AND `month`=1;
+
+#확인문제2
+SELECT 
+	SUM(`sale`) AS `총합`, 
+	AVG(`sale`) AS `평균` 
+FROM 
+	`Sales` 
+WHERE 
+	`year`=2019 AND 
+	`month`=2   AND 
+	`sale` > 50000;
+
+#확인문제3
+SELECT 
+	MIN(`sale`) AS `최저`,  
+	MAX(`sale`) AS `최고`
+FROM 
+	`Sales` 
+WHERE 
+	`year` = 2020;
+
 
 #실습하기 5-7
 
