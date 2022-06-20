@@ -56,32 +56,83 @@ INSERT INTO `Orders`(`custid`,`bookid`,`saleprice`,`orderdate`) VALUES (2,10,700
 INSERT INTO `Orders`(`custid`,`bookid`,`saleprice`,`orderdate`) VALUES (3, 8,13000,'2014-07-10');
 
 #문제4
+SELECT `custid`, `name`, `address` FROM `Customer`;
+
 #문제5
+SELECT `bookname`, `price` FROM `Book`;
+
 #문제6
+SELECT `price`, `bookname` FROM `Book`;
+
 #문제7
+SELECT * FROM `Book`;
+
 #문제8
+SELECT `publisher` FROM `Book`;
+
 #문제9
+SELECT DISTINCT `publisher` FROM `Book`;
+
 #문제10
+SELECT * FROM `Book` WHERE `price` >= 20000;
 
 #문제11
+SELECT * FROM `Book` WHERE `price` < 20000;
+
 #문제12
+SELECT * FROM `Book` WHERE `price` >= 10000 AND `price` <= 20000;
+SELECT * FROM `Book` WHERE `price` BETWEEN 10000 AND 20000;
+
 #문제13
+SELECT `bookid`, `bookname`, `price` FROM `Book` WHERE `price` >= 15000 AND `price` <= 30000;
+
 #문제14
+SELECT * FROM `Book` WHERE `bookid`=2 OR `bookid`=3 OR `bookid`=5;
+SELECT * FROM `Book` WHERE `bookid` IN(2, 3, 5);
+
 #문제15
+SELECT * FROM `Book` WHERE `bookid` % 2 = 0;
+
 #문제16
+SELECT * FROM `Customer` WHERE `name` LIKE '박%';
+
 #문제17
+SELECT * FROM `Customer` WHERE `address` LIKE '%대한민국%';
+
 #문제18
+SELECT * FROM `Customer` WHERE NOT `phone` IS NULL;
+
 #문제19
+SELECT * FROM `Book` WHERE `publisher` = '굿스포츠' OR `publisher`='대한미디어'; 
+SELECT * FROM `Book` WHERE `publisher` IN('굿스포츠', '대한미디어'); 
+
 #문제20
+SELECT `publisher` FROM `Book` WHERE `bookname`='축구의 역사';
 
 #문제21
+SELECT `publisher` FROM `Book` WHERE `bookname` LIKE '%축구%';
+
 #문제22
+SELECT * FROM `Book` WHERE `bookname` LIKE '_구%';
+
 #문제23
+SELECT * FROM `Book` WHERE `bookname` LIKE '%축구%' AND `price` >= 20000;
+
 #문제24
+SELECT * FROM `Book` ORDER BY `bookname`;
+
 #문제25
+SELECT * FROM `Book` ORDER BY `price`, `bookname`;
+
 #문제26
+SELECT * FROM `Book` ORDER BY `price` DESC, `bookname` ASC;
+
 #문제27
+SELECT * FROM `Book` ORDER BY `price` DESC LIMIT 3;
+
 #문제28
+SELECT * FROM `Book` ORDER BY `price` ASC LIMIT 3;
+
 #문제29
 #문제30
 
